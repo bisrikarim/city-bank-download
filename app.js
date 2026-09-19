@@ -4,7 +4,10 @@
  * LE SEUL ENDROIT À MODIFIER À CHAQUE NOUVELLE VERSION : les deux constantes
  * ci-dessous. Tous les boutons « Télécharger » de la page les reprennent.
  */
-const APK_URL = 'city-bank.apk'; // le fichier posé à côté de index.html, ou une URL complète
+// Lien fixe : « latest » pointe toujours vers la dernière Release GitHub créée
+// dans bisrikarim/city-bank-download. Une nouvelle version = une nouvelle
+// Release avec un fichier nommé exactement city-bank.apk ; ce lien n'a pas à changer.
+const APK_URL = 'https://github.com/bisrikarim/city-bank-download/releases/latest/download/city-bank.apk';
 const APP_VERSION = '1.0.0'; // mobile/app.json -> expo.version
 
 (function () {
