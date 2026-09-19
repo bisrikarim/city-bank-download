@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Bank · Dons d'objets au Maroc</title>
+    <meta
+      name="description"
+      content="City Bank réunit ceux qui donnent et ceux qui cherchent, partout au Maroc. Des objets gratuits, près de chez vous. Téléchargez l'application pour Android."
+    />
+    <meta name="theme-color" content="#17392C" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="City Bank · Dons d'objets au Maroc" />
+    <meta
+      property="og:description"
+      content="Donnez ce qui vous encombre, trouvez ce qu'il vous faut. Gratuitement, près de chez vous."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317392C'/%3E%3Cg fill='none' stroke='%23F4F1EA' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 30h32v16a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4V30Z'/%3E%3Cpath d='M13 24a2 2 0 0 1 2-2h34a2 2 0 0 1 2 2v6H13v-6Z'/%3E%3Cpath d='M32 22v28'/%3E%3Cpath d='M32 22c-3-6-11-7-13-3-1.6 3.4 3 5 7 4.2 2.6-.5 4.6-.6 6-1.2Z'/%3E%3Cpath d='M32 22c3-6 11-7 13-3 1.6 3.4-3 5-7 4.2-2.6-.5-4.6-.6-6-1.2Z'/%3E%3C/g%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Line-art pictograms, drawn once and reused. Same rule as the app's
+         illustrations.tsx: one stroke weight, round caps, no fill. -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-gift" viewBox="0 0 64 64">
+          <path d="M16 30h32v16a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4V30Z" />
+          <path d="M13 24a2 2 0 0 1 2-2h34a2 2 0 0 1 2 2v6H13v-6Z" />
+          <path d="M32 22v28" />
+          <path d="M32 22c-3-6-11-7-13-3-1.6 3.4 3 5 7 4.2 2.6-.5 4.6-.6 6-1.2Z" />
+          <path d="M32 22c3-6 11-7 13-3 1.6 3.4-3 5-7 4.2-2.6-.5-4.6-.6-6-1.2Z" />
+        </symbol>
+        <symbol id="i-sofa" viewBox="0 0 64 64">
+          <path d="M14 30v-6a6 6 0 0 1 6-6h24a6 6 0 0 1 6 6v6" />
+          <path d="M10 34a4 4 0 0 1 8 0v4h28v-4a4 4 0 0 1 8 0v10a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V34Z" />
+          <path d="M16 48v4M48 48v4" />
+        </symbol>
+        <symbol id="i-books" viewBox="0 0 64 64">
+          <rect x="14" y="40" width="36" height="8" rx="2" />
+          <rect x="18" y="32" width="30" height="8" rx="2" />
+          <rect x="12" y="24" width="32" height="8" rx="2" />
+          <path d="M20 44h14M24 36h12M18 28h10" />
+        </symbol>
+        <symbol id="i-bike" viewBox="0 0 64 64">
+          <circle cx="18" cy="40" r="9" />
+          <circle cx="46" cy="40" r="9" />
+          <path d="M18 40l9-14h12l7 14M27 26l9 14h10M36 20h7" />
+        </symbol>
+        <symbol id="i-lamp" viewBox="0 0 64 64">
+          <path d="M24 14h16l6 16H18l6-16Z" />
+          <path d="M32 30v18M22 50h20" />
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24">
+          <path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 0 1 16 0Z" />
+          <circle cx="12" cy="10" r="3" />
+        </symbol>
+        <symbol id="i-eye-off" viewBox="0 0 24 24">
+          <path d="M10.7 5.1A10 10 0 0 1 22 12a13 13 0 0 1-1.7 2.7M6.6 6.6A13.5 13.5 0 0 0 2 12s3.5 7 10 7a9.7 9.7 0 0 0 5.4-1.6" />
+          <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2M2 2l20 20" />
+        </symbol>
+        <symbol id="i-check-shield" viewBox="0 0 24 24">
+          <path d="M20 13c0 5-3.5 7.5-7.7 9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1Z" />
+          <path d="m9 12 2 2 4-4" />
+        </symbol>
+        <symbol id="i-flag" viewBox="0 0 24 24">
+          <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1Z" />
+          <path d="M4 22v-7" />
+        </symbol>
+        <symbol id="i-heart-hand" viewBox="0 0 24 24">
+          <path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" />
+          <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8l-4.2 3.9" />
+          <path d="m2 15 6 6" />
+          <path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.7 2.7 0 0 0 16 4a2.7 2.7 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z" />
+        </symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 6v6l4 2" />
+        </symbol>
+        <symbol id="i-download" viewBox="0 0 24 24">
+          <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
+        </symbol>
+        <symbol id="i-search" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-4-4" />
+        </symbol>
+        <symbol id="i-bell" viewBox="0 0 24 24">
+          <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0" />
+        </symbol>
+        <symbol id="i-home" viewBox="0 0 24 24">
+          <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z" />
+        </symbol>
+        <symbol id="i-map" viewBox="0 0 24 24">
+          <path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2ZM9 4v14M15 6v14" />
+        </symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24">
+          <path d="M12 5v14M5 12h14" />
+        </symbol>
+        <symbol id="i-user" viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="4" />
+          <path d="M4 21a8 8 0 0 1 16 0" />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+          <path d="M20 6 9 17l-5-5" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <a class="skip" href="#telecharger">Aller au téléchargement</a>
+
+    <header class="topbar">
+      <div class="wrap topbar-inner">
+        <a class="brand" href="#" aria-label="City Bank, accueil">
+          <span class="brand-mark"><svg><use href="#i-gift" /></svg></span>
+          <span class="brand-name">City Bank</span>
+        </a>
+        <nav class="topnav" aria-label="Sections">
+          <a href="#comment">Comment ça marche</a>
+          <a href="#installer">Installer</a>
+          <a href="#questions">Questions</a>
+        </nav>
+        <a class="btn btn-small js-apk" href="city-bank.apk" download>
+          <svg class="ico"><use href="#i-download" /></svg>
+          Télécharger
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============================================================ HERO -->
+      <section class="hero" id="telecharger">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Dons d'objets gratuits · Partout au Maroc</p>
+            <h1>Donnez ce qui vous encombre. Trouvez ce qu'il vous faut.</h1>
+            <p class="lede">
+              City Bank réunit ceux qui donnent et ceux qui cherchent. Pas de prix, pas d'échange&nbsp;:
+              chaque objet passe simplement de main en main, dans votre quartier.
+            </p>
+
+            <div class="cta-block">
+              <a class="btn btn-large js-apk" href="city-bank.apk" download>
+                <svg class="ico"><use href="#i-download" /></svg>
+                <span>
+                  <span class="btn-line">Télécharger pour Android</span>
+                  <span class="btn-sub">Fichier APK · <span class="js-version">Version 1.0.0</span></span>
+                </span>
+              </a>
+              <a class="text-link" href="#installer">Comment l'installer&nbsp;?</a>
+            </div>
+
+            <ul class="hero-facts" aria-label="En bref">
+              <li><svg class="ico"><use href="#i-check" /></svg>Gratuit, sans publicité</li>
+              <li><svg class="ico"><use href="#i-check" /></svg>Chaque annonce relue par une personne</li>
+              <li><svg class="ico"><use href="#i-check" /></svg>Consultation sans compte</li>
+            </ul>
+          </div>
+
+          <!-- The app itself, drawn in HTML: the home feed as it really looks. -->
+          <div class="hero-visual" aria-hidden="true">
+            <div class="halo"></div>
+            <div class="phone">
+              <div class="phone-screen">
+                <div class="status"><span>9:41</span><span class="status-dots"></span></div>
+                <div class="app-head">
+                  <span class="app-title">Accueil</span>
+                  <span class="app-bell"><svg><use href="#i-bell" /></svg><i>2</i></span>
+                </div>
+                <div class="app-search"><svg><use href="#i-search" /></svg>Rechercher un objet</div>
+                <div class="app-chips">
+                  <span class="chip on">Tous</span><span class="chip">Meubles</span><span class="chip">Livres</span
+                  ><span class="chip">Jouets</span>
+                </div>
+                <div class="app-feed">
+                  <div class="card">
+                    <span class="thumb t-mint"><svg><use href="#i-sofa" /></svg></span>
+                    <span class="card-body">
+                      <b>Canapé 3 places gris</b>
+                      <small>Meubles · Bon état</small>
+                      <small class="place"><svg><use href="#i-pin" /></svg>Maârif, Casablanca · 1,2 km</small>
+                      <em>il y a 2 h</em>
+                    </span>
+                  </div>
+                  <div class="card">
+                    <span class="thumb t-sand"><svg><use href="#i-books" /></svg></span>
+                    <span class="card-body">
+                      <b>Lot de livres de gestion</b>
+                      <small>Livres · Très bon état</small>
+                      <small class="place"><svg><use href="#i-pin" /></svg>Agdal, Rabat · 3 km</small>
+                      <em>il y a 5 h</em>
+                    </span>
+                  </div>
+                  <div class="card">
+                    <span class="thumb t-sage"><svg><use href="#i-bike" /></svg></span>
+                    <span class="card-body">
+                      <b>Vélo enfant 16 pouces</b>
+                      <small>Jouets · À réparer</small>
+                      <small class="place"><svg><use href="#i-pin" /></svg>Guéliz, Marrakech</small>
+                      <em>hier</em>
+                    </span>
+                  </div>
+                  <div class="card">
+                    <span class="thumb t-mint"><svg><use href="#i-lamp" /></svg></span>
+                    <span class="card-body">
+                      <b>Lampe de bureau</b>
+                      <small>Électroménager · Bon état</small>
+                      <small class="place"><svg><use href="#i-pin" /></svg>Anfa, Casablanca</small>
+                      <em>il y a 2 j</em>
+                    </span>
+                  </div>
+                </div>
+                <nav class="app-tabs">
+                  <span class="tab on"><svg><use href="#i-home" /></svg>Accueil</span>
+                  <span class="tab"><svg><use href="#i-map" /></svg>Carte</span>
+                  <span class="tab publish"><span><svg><use href="#i-plus" /></svg></span>Publier</span>
+                  <span class="tab"><svg><use href="#i-user" /></svg>Compte</span>
+                </nav>
+              </div>
+            </div>
+            <div class="toast">
+              <span class="toast-ico"><svg><use href="#i-check" /></svg></span>
+              <span><b>Annonce validée</b><small>Votre canapé est en ligne.</small></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================= CATEGORIES -->
+      <section class="strip" aria-label="Ce qu'on y trouve">
+        <div class="wrap strip-inner">
+          <span class="strip-label">On y trouve de tout</span>
+          <ul class="strip-list">
+            <li>Meubles</li>
+            <li>Livres</li>
+            <li>Vêtements</li>
+            <li>Électronique</li>
+            <li>Jouets</li>
+            <li>Électroménager</li>
+            <li>Outils</li>
+            <li>Animaux</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============================================================ STEPS -->
+      <section class="section" id="comment">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Comment ça marche</p>
+            <h2>Donner, en trois temps.</h2>
+          </div>
+          <ol class="steps">
+            <li class="step">
+              <span class="step-num">1</span>
+              <h3>Prenez l'objet en photo</h3>
+              <p>Jusqu'à six photos, une catégorie, son état et votre quartier. Rien d'autre à remplir.</p>
+            </li>
+            <li class="step">
+              <span class="step-num">2</span>
+              <h3>Une personne relit votre annonce</h3>
+              <p>Chaque annonce est vérifiée à la main avant d'être publiée, en général sous 24&nbsp;heures.</p>
+            </li>
+            <li class="step">
+              <span class="step-num">3</span>
+              <h3>On vous contacte</h3>
+              <p>Par téléphone, WhatsApp ou email&nbsp;: c'est vous qui choisissez. Vous convenez ensemble du rendez-vous.</p>
+            </li>
+          </ol>
+
+          <div class="seek">
+            <div class="seek-art" aria-hidden="true"><svg><use href="#i-search" /></svg></div>
+            <div>
+              <h3>Et pour trouver&nbsp;?</h3>
+              <p>
+                Parcourez les annonces, filtrez par ville, par distance ou par catégorie, ou ouvrez la carte pour voir
+                ce qui se donne autour de vous. Pas besoin de compte pour regarder.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ TRUST -->
+      <section class="section dark" aria-labelledby="confiance">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Confiance</p>
+            <h2 id="confiance">Pensée pour que donner reste simple et sûr.</h2>
+          </div>
+          <ul class="features">
+            <li>
+              <svg class="f-ico"><use href="#i-pin" /></svg>
+              <h3>Jamais d'adresse exacte</h3>
+              <p>Sur la carte, une annonce est placée au centre de son quartier. Personne ne voit votre porte.</p>
+            </li>
+            <li>
+              <svg class="f-ico"><use href="#i-eye-off" /></svg>
+              <h3>Vos coordonnées restent discrètes</h3>
+              <p>Elles n'apparaissent jamais dans l'annonce, seulement quand quelqu'un touche «&nbsp;Contacter&nbsp;».</p>
+            </li>
+            <li>
+              <svg class="f-ico"><use href="#i-check-shield" /></svg>
+              <h3>Relue par une personne</h3>
+              <p>Aucune annonce n'est publiée sans avoir été validée par notre équipe de modération.</p>
+            </li>
+            <li>
+              <svg class="f-ico"><use href="#i-flag" /></svg>
+              <h3>Signaler, bloquer</h3>
+              <p>Un doute sur une annonce ou une personne&nbsp;? Signalez-la en deux gestes, ou bloquez-la.</p>
+            </li>
+            <li>
+              <svg class="f-ico"><use href="#i-heart-hand" /></svg>
+              <h3>Gratuit, vraiment</h3>
+              <p>Ni vente, ni enchère, ni abonnement. City Bank est faite pour donner.</p>
+            </li>
+            <li>
+              <svg class="f-ico"><use href="#i-clock" /></svg>
+              <h3>Des annonces à jour</h3>
+              <p>Une annonce reste en ligne six mois au plus, et vous indiquez quand l'objet a trouvé preneur.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ========================================================== INSTALL -->
+      <section class="section" id="installer">
+        <div class="wrap install-grid">
+          <div>
+            <div class="section-head">
+              <p class="eyebrow">Installation</p>
+              <h2>Installer City Bank sur Android.</h2>
+              <p class="section-lede">
+                City Bank se télécharge ici, directement, sans passer par le Play Store. Comptez une minute.
+              </p>
+            </div>
+            <ol class="install">
+              <li>
+                <h3>Téléchargez le fichier</h3>
+                <p>Touchez «&nbsp;Télécharger pour Android&nbsp;» depuis votre téléphone. Le fichier <code>city-bank.apk</code> arrive dans vos téléchargements.</p>
+              </li>
+              <li>
+                <h3>Ouvrez-le</h3>
+                <p>Depuis la notification de téléchargement, ou depuis l'application «&nbsp;Fichiers&nbsp;» de votre téléphone.</p>
+              </li>
+              <li>
+                <h3>Autorisez l'installation</h3>
+                <p>
+                  Android demande la permission d'installer des applications depuis votre navigateur. Touchez
+                  «&nbsp;Paramètres&nbsp;», activez «&nbsp;Autoriser cette source&nbsp;», puis revenez en arrière.
+                </p>
+              </li>
+              <li>
+                <h3>Installez et ouvrez City Bank</h3>
+                <p>L'icône au cadeau vert apparaît avec vos autres applications.</p>
+              </li>
+            </ol>
+          </div>
+
+          <aside class="install-side">
+            <div class="note">
+              <h3>Pourquoi cet avertissement&nbsp;?</h3>
+              <p>
+                City Bank n'est pas distribuée par le Play Store&nbsp;: Android demande donc votre accord avant de
+                l'installer. C'est normal. Téléchargez-la uniquement depuis ce site.
+              </p>
+            </div>
+            <div class="note">
+              <h3>Mettre à jour</h3>
+              <p>
+                Téléchargez la nouvelle version sur cette page et installez-la par-dessus l'ancienne&nbsp;: votre
+                compte et vos annonces sont conservés.
+              </p>
+            </div>
+            <div class="note">
+              <h3>Et sur iPhone&nbsp;?</h3>
+              <p>Pour l'instant, City Bank n'existe que sur Android.</p>
+            </div>
+            <div class="qr-card js-qr-card" hidden>
+              <div class="qr js-qr" role="img" aria-label="QR code vers cette page"></div>
+              <p><b>Vous êtes sur ordinateur&nbsp;?</b> Scannez ce code avec votre téléphone pour ouvrir cette page et télécharger l'application.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ============================================================== FAQ -->
+      <section class="section faq-section" id="questions">
+        <div class="wrap faq-wrap">
+          <div class="section-head">
+            <p class="eyebrow">Questions</p>
+            <h2>Ce qu'on nous demande souvent.</h2>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>Est-ce vraiment gratuit&nbsp;?</summary>
+              <p>
+                Oui. L'application est gratuite, et les objets aussi&nbsp;: sur City Bank, on donne, on ne vend pas et
+                on n'échange pas.
+              </p>
+            </details>
+            <details>
+              <summary>Faut-il créer un compte&nbsp;?</summary>
+              <p>
+                Pas pour regarder les annonces. Un compte est nécessaire pour publier une annonce, et il vous permet de
+                contacter les donneurs sans limite.
+              </p>
+            </details>
+            <details>
+              <summary>Dans quelles villes&nbsp;?</summary>
+              <p>Partout au Maroc. Vous choisissez votre ville et votre quartier dans une liste au moment de publier.</p>
+            </details>
+            <details>
+              <summary>Pourquoi mon annonce n'apparaît-elle pas tout de suite&nbsp;?</summary>
+              <p>
+                Parce qu'une personne la relit avant publication, en général sous 24&nbsp;heures. Vous recevez une
+                notification dès qu'elle est en ligne. Si elle est refusée, le motif vous est indiqué et vous pouvez la
+                corriger.
+              </p>
+            </details>
+            <details>
+              <summary>Combien de temps une annonce reste-t-elle en ligne&nbsp;?</summary>
+              <p>
+                Six mois au plus. Quand l'objet a trouvé preneur, vous l'indiquez dans l'application et l'annonce
+                disparaît.
+              </p>
+            </details>
+            <details>
+              <summary>Installer un fichier APK, est-ce sûr&nbsp;?</summary>
+              <p>
+                Oui, tant que vous le téléchargez depuis ce site. N'installez jamais City Bank depuis un fichier reçu par
+                message ou trouvé ailleurs.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= LAST CTA -->
+      <section class="final">
+        <div class="wrap">
+          <div class="final-card">
+            <svg class="final-art" aria-hidden="true"><use href="#i-gift" /></svg>
+            <div class="final-copy">
+              <h2>Un objet vous encombre&nbsp;? Quelqu'un le cherche peut-être.</h2>
+              <p>Installez City Bank et publiez votre premier don en quelques minutes.</p>
+            </div>
+            <a class="btn btn-light js-apk" href="city-bank.apk" download>
+              <svg class="ico"><use href="#i-download" /></svg>
+              Télécharger pour Android
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <a class="brand" href="#" aria-label="City Bank, haut de page">
+          <span class="brand-mark"><svg><use href="#i-gift" /></svg></span>
+          <span class="brand-name">City Bank</span>
+        </a>
+        <p>Dons d'objets entre particuliers, partout au Maroc. Disponible sur Android.</p>
+        <p class="footer-small">© <span class="js-year">2026</span> City Bank</p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
